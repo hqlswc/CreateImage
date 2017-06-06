@@ -1,4 +1,5 @@
-# hello-world
-This is mine 1st repository !
+# Create vm images in the web paltform
 
-Let me try 1st commit.
+Web Framwork   : django
+DB	       : sqlite3
+virtual Engine : kvm
