@@ -1,5 +1,7 @@
-# Create vm images in the web paltform
+# Create vm images on web
 
-Web Framwork   : django
-DB	       : sqlite3
-virtual Engine : kvm
+|    Software    |   Version   |
+|:-------------- |:----------- |
+| Web Framwork   | django 1.11 |
+| Database       | sqlite3     |
+| Virtual Engine | kvm         |
