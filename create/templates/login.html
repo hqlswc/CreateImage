@@ -1,0 +1,28 @@
+{% extends "base_login.html" %}
+
+{% block title4 %}
+  login
+{% endblock %}
+
+{% block content %}
+
+<div class="ui form segment">
+    <form class="ui form" method="post">{% csrf_token %}
+      <div class="field username">
+        {{form.username}}
+      </div>
+      <div class="field password">
+        {{form.password}}
+      </div>
+      <div class="field submit">
+        <input type="submit" class="ui fluid blue button" value="login">
+      </div>
+    </form>
+
+    {% if form.errors %}
+        <p class="ui negative message">Your username and password didn't match. Please try again.</p>
+    {% endif %}
+</div>
+
+
+{% endblock %}

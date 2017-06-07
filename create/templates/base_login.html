@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="../static/extra.css">
+    <link rel="stylesheet" href="../static/semantic.css">
+
+  </head>
+  <body>
+        <!--这里是Menu-->
+        <div class="ui raised segment">
+            <div class="ui secondary menu">
+                <div class="ui header item">
+                    CreateImage
+                </div>
+                <a class="ui item">{% block title1 %}{% endblock %}</a>
+                <a class="ui item">{% block title2 %}{% endblock %}</a>
+                <a class="ui item">{% block title3 %}{% endblock %}</a>
+                <div class="right menu">
+                  <a class="ui item">{% block title4 %}{% endblock %}</a>
+                </div>
+            </div>
+        </div>
+
+        <!--这里是内容填充处-->
+        <div class="ui container content">
+            {% block content %}
+            {% endblock %}
+        </div>
+
+        <div class="ui horizonal divider"></div>
+
+        <!--这里是footer-->
+        <div class="ui container copyright">
+            Copyright (c) 2017 Copyright Johnson.hu All Rights Reserved.
+        </div>
+
+
+  </body>
+</html>
