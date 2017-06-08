@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block title1 %}VMlist{% endblock %}
+{% block title2 %}xxx{% endblock %}
+{% block title3 %}xxx{% endblock %}
+{% block title4 %}xxx{% endblock %}
+
+{% block content %}
+
+  <h1>The Create Page</h1>
+  <form class="ui form" method="post">
+    {% csrf_token %}
+    <input type="text" name="name" placeholder="Name"><br>
+    <input type="text" name="memory" placeholder="Memory"><br>
+    <input type="text" name="cpu" placeholder="CPU"><br>
+    <input type="text" name="disk" placeholder="DISK"><br>
+    <input type="text" name="cdrom" placeholder="CDROM"><br>
+    <input type="text" name="network" placeholder="NETWORK"><br>
+    <button type="submit" class="ui black button">Create</button>
+  </form>
+
+  <h1>The XML's value is </h1>
+  <div class="ui fidld">
+    {{y}}
+  </div>
+
+{% endblock %}
