@@ -2,10 +2,8 @@ import libvirt
 
 
 class XMLCreate():
-    def connect(self, url):
-        url = "qemu:///system"
-        conn = libvirt.open(url)
-        return conn
+    url = "qemu:///system"
+    conn = libvirt.open(url)
 
     def createxml(self, name, memory, cpu, disk, cdrom, network):
         memory = int(memory) * 1024
@@ -34,7 +32,7 @@ class XMLCreate():
                     <disk type="file" device="disk">
                       <driver name="qemu" type="qcow2" cache="none"/>
                       <source file="%s"/>
-                      <target bus="virtio" dev="vda"/>
+                      <target dev="vda" bus="virtio"/>
                     </disk>
                     <disk type='file' device='cdrom'>
                       <driver name='qemu' type='raw'/>
@@ -51,4 +49,4 @@ class XMLCreate():
                     <graphics type="vnc" autoport="yes" keymap="en-us" listen="0.0.0.0"/>
                   </devices>
                 </domain>""" % (name, memory, cpu, disk, cdrom, network)
-        return xml
+        self.conn.defineXML(xml)

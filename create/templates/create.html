@@ -19,9 +19,15 @@
     <button type="submit" class="ui black button">Create</button>
   </form>
 
-  <h1>The XML's value is </h1>
-  <div class="ui fidld">
-    {{y}}
-  </div>
+  {% if err %}
+    <div class="ui negative message">
+      <h4>Error Message :</h4>
+      {{ err }}
+    </div>
+  {% endif %}
+
+  {{ domains }}
+
+
 
 {% endblock %}

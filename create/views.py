@@ -6,6 +6,9 @@ from django.http import HttpResponseRedirect
 from django.core.urlresolvers import reverse
 from .form import CreateForm
 from .create import XMLCreate
+from .models import vminfo
+import libvirt
+
 # Create your views here.
 
 
@@ -32,8 +35,16 @@ def create(request):
             network = data["network"]
 
             x = ""
-            x = XMLCreate()
-            y = x.createxml(name, memory, cpu, disk, cdrom, network)
-            print y
+            x = XMLCreate()  # class instance
+            try:
+                x.conn
+                x.createxml(name, memory, cpu, disk, cdrom, network)
+                dom = x.conn.lookupByName(name)
+                dom.create()
+                domains = x.conn.listAllDomains(0)
+            except libvirt.libvirtError as err:
+                x.conn
+                dom = x.conn.lookupByName(name)
+                dom.undefine()
 
     return render(request, "create.html", locals())
