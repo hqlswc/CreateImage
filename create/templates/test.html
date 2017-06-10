@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  <form class="ui form" action="" method="POST">
+    {% csrf_token %}
+    <input type="checkbox" name="check_box_list" value="1">1
+    <input type="checkbox" name="check_box_list" value="2">2
+    <input type="checkbox" name="check_box_list" value="3">3
+    <input type="checkbox" name="check_box_list" value="4">4
+    <input type="submit" class="ui blue button" name="" value="submit">
+  </form>
+{% endblock %}

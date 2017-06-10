@@ -24,4 +24,6 @@ urlpatterns = [
     url(r'^logout/', auth_views.logout, {'next_page': '/'}),
     url(r'^$', create_views.index, name='index'),
     url(r'^create/', create_views.create, name='create'),
+    url(r'^detail/', create_views.detail, name='detail'),
+    url(r'^test/', create_views.test, name="test"),
 ]

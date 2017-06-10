@@ -7,8 +7,31 @@
 
 {% block content %}
   <h1>The VM details Page</h1>
-  <div class="ui segment">
-    {{ domains }}
-  </div>
+  <form class="vmform1"  method="post">
+  {% csrf_token %}
+    <table class="ui selectable celled table">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>name</th>
+          <th>memory</th>
+          <th>cpu</th>
+          <th>status</th>
+        </tr>
+      </thead>
 
+      <tbody>
+        <input type="submit" class="ui blue button" name="" value="Delete">
+        {% for item in vminfos %}
+        <tr>
+          <td><input type="checkbox" name="checked" value="{{ item.name }}"></td>
+          <td>{{ item.name }}</td>
+          <td>{{ item.memory }}</td>
+          <td>{{ item.cpu }}</td>
+          <td>{{ item.status }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </form>
 {% endblock %}
